@@ -75,7 +75,7 @@ h6 {
   --filter-lighter-theme: brightness(0) saturate(100%) invert(90%) sepia(6%) saturate(811%) hue-rotate(332deg) brightness(107%) contrast(87%);
   
   --padding-default: 1rem;
-  --header-height: 9.5rem;
+  --header-height: 5rem;
 }
 
 @font-face {
@@ -103,12 +103,12 @@ h6 {
   padding: var(--padding-default);
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   font-family: 'folks-heavy';
-  font-size: 2rem;
+  font-size: 1rem;
 
   & svg {
-    height: 4rem;
+    height: 2rem;
     filter: var(--filter-lighter-theme);
   }
 }
@@ -131,7 +131,7 @@ h6 {
 
 .main {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   height: calc(100% - var(--header-height));
 }
 
@@ -156,7 +156,7 @@ h6 {
 
 .book {
   position: relative;
-  padding: 1rem 6rem;
+  padding: 1rem 6rem 1rem 4rem;
   background: url('src/leather2.jpg');
   background-size: contain;
   box-shadow: inset 0px 11px 10px -10px black, inset 0px -11px 10px -10px black;
@@ -190,6 +190,13 @@ h6 {
   right: 2rem;
 }
 
+.book-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: calc(100% - 4rem);
+}
+
 .title {
   font-size: 28px;
   display: inline-block;
@@ -206,7 +213,7 @@ h6 {
   font-size: 1.5em;
   position: absolute;
   top: var(--padding-default);
-  right: 6rem;
+  right: 4rem;
   & span {
     display: flex;
     align-items: center;
@@ -229,13 +236,14 @@ h6 {
   display: inline-block;
   font-size: 24px;
   font-weight: 500;
+  margin-left: 1rem;
 }
 
-.year::before {
+/* .year::before {
   content: '–';
   margin: 0 1rem;
   font-weight: 400;
-}
+} */
 
 .sidebar {
   background: var(--lighter-theme);
