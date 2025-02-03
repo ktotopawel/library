@@ -1,0 +1,243 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  font-family: system-ui, sans-serif;
+  font-weight: normal;
+  --white: #F7F7F7;
+  --lighter-theme: #efe4d7;
+  --light-theme: #c3b3a2;
+  --dark-theme: #7a7265;
+  --darker-theme: #4b3d3a;
+  --dark: #2d2b2a;
+  --highlight: #dcca23;
+  --filter-lighter-theme: brightness(0) saturate(100%) invert(90%) sepia(6%) saturate(811%) hue-rotate(332deg) brightness(107%) contrast(87%);
+  
+  --padding-default: 1rem;
+  --header-height: 9.5rem;
+}
+
+@font-face {
+  font-family: 'folks-heavy';
+  src: url('fonts/folks-heavy-webfont.woff2') format('woff2'),
+    url('fonts/folks-heavy-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.container {
+  height: 100vh;
+}
+
+.header {
+  background: var(--darker-theme);
+  color: var(--lighter-theme);
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.logo {
+  padding: var(--padding-default);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: 'folks-heavy';
+  font-size: 2rem;
+
+  & svg {
+    height: 4rem;
+    filter: var(--filter-lighter-theme);
+  }
+}
+
+.nav {
+  margin-left: auto;
+  padding: var(--padding-default);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: calc(100% - var(--header-height));
+}
+
+.content {
+  background: var(--lighter-theme);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow-y: auto;
+  padding: var(--padding-default);
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: var(--light-theme);
+
+  }
+}
+
+.book {
+  position: relative;
+  padding: 1rem 6rem;
+  background: url('src/leather2.jpg');
+  background-size: contain;
+  box-shadow: inset 0px 11px 10px -10px black, inset 0px -11px 10px -10px black;
+  max-height: min-content;
+  border-radius: 0.5rem;
+  color: var(--white);
+  /* filter: hue-rotate(90deg); */
+}
+
+/* .book:last-child {
+  filter: hue-rotate(90deg);
+} */
+
+.book::before, .book::after {
+  position: absolute;
+  top: 0;
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 1rem;
+  background-color: darkred;
+  filter: blur(50%);
+  opacity: 50%;
+}
+
+.book::before {
+  left: 2rem;
+}
+
+.book::after {
+  right: 2rem;
+}
+
+.title {
+  font-size: 28px;
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.author {
+  font-style: italic;
+  font-size: 24px;
+  display: inline-block;
+}
+
+.rating {
+  font-size: 1.5em;
+  position: absolute;
+  top: var(--padding-default);
+  right: 6rem;
+  & span {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    }
+}
+
+.rating span::before {
+  content: '';
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  background-image: url('src/star.svg');
+  background-size: cover;
+  transform: translateY(-1px);
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(73%) hue-rotate(87deg) brightness(117%) contrast(94%);
+}
+
+.year {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.year::before {
+  content: '–';
+  margin: 0 1rem;
+  font-weight: 400;
+}
+
+.sidebar {
+  background: var(--lighter-theme);
+  padding: var(--padding-default);
+}
