@@ -72,7 +72,9 @@ h6 {
   --darker-theme: #4b3d3a;
   --dark: #2d2b2a;
   --highlight: #dcca23;
+
   --filter-lighter-theme: brightness(0) saturate(100%) invert(90%) sepia(6%) saturate(811%) hue-rotate(332deg) brightness(107%) contrast(87%);
+  --filter-dark: brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(546%) hue-rotate(335deg) brightness(93%) contrast(88%);
   
   --padding-default: 1rem;
   --header-height: 5rem;
@@ -127,6 +129,22 @@ h6 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-right: 2rem;
+}
+
+.nav-links li {
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--highlight);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+}
+
+.add {
+  height: 2rem;
+  filter: var(--filter-dark);
 }
 
 .main {
