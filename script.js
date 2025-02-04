@@ -41,7 +41,7 @@ cards = document.querySelector('.content');
 
 for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement('div')
-    card.className += "book";
+    card.className += "book big";
 
     const bookInfo = document.createElement('div');
     bookInfo.className += 'book-info';
@@ -79,3 +79,9 @@ for (let i = 0; i < myLibrary.length; i++) {
 
     cards.appendChild(card);
 }
+
+const addButton = document.querySelector('#add-btn');
+
+addButton.addEventListener('click', () => {
+
+})
