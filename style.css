@@ -76,7 +76,8 @@ h6 {
   --filter-lighter-theme: brightness(0) saturate(100%) invert(90%) sepia(6%) saturate(811%) hue-rotate(332deg) brightness(107%) contrast(87%);
   --filter-dark: brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(546%) hue-rotate(335deg) brightness(93%) contrast(88%);
   --filter-highlight: brightness(0) saturate(100%) invert(84%) sepia(89%) saturate(4243%) hue-rotate(342deg) brightness(94%) contrast(83%);
-  --filter-darker-theme: brightness(0) saturate(100%) invert(21%) sepia(3%) saturate(3741%) hue-rotate(323deg) brightness(93%) contrast(82%);;
+  --filter-darker-theme: brightness(0) saturate(100%) invert(21%) sepia(3%) saturate(3741%) hue-rotate(323deg) brightness(93%) contrast(82%);
+  --filter-white: brightness(0) saturate(100%) invert(100%) sepia(5%) saturate(506%) hue-rotate(276deg) brightness(114%) contrast(94%);
   
   --padding-default: 1rem;
   --header-height: 5rem;
@@ -208,11 +209,11 @@ h6 {
   &::-webkit-scrollbar {
     width: 10px;
   }
-
+  
   &::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background-color: var(--dark-theme);
-
+    
   }
 }
 
@@ -247,6 +248,15 @@ h6 {
 
 .book::after {
   right: 2rem;
+}
+
+.big:hover,
+.big.selected {
+  z-index: 1;
+  transform: scale(1.1, 1.15);
+  transform-origin: center;
+  box-shadow: 0px 0px 10px 20px hsla(0, 100%, 0%, 0.5);
+  cursor: pointer;
 }
 
 .book-info {
@@ -298,16 +308,12 @@ h6 {
   margin-left: 1rem;
 }
 
-/* .year::before {
-  content: '–';
-  margin: 0 1rem;
-  font-weight: 400;
-} */
-
 .sidebar {
-  /* background: var(--lighter-theme); */
   padding: var(--padding-default);
   position: relative;
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: 1fr 1fr;
 }
 
 .sidebar::before {
@@ -318,7 +324,6 @@ h6 {
   background-color: var(--darker-theme);
   left: 0;
   top: 0;
-
 }
 
 .sidebar-card {
@@ -332,15 +337,7 @@ h6 {
 
 .default {
   padding: var(--padding-default);
-}
-
-.big:hover,
-.big.selected {
-  z-index: 1;
-  transform: scale(1.1, 1.15);
-  transform-origin: center;
-  box-shadow: 0px 0px 10px 20px hsla(0, 100%, 0%, 0.5);
-  cursor: pointer;
+  display: none;
 }
 
 dialog {
@@ -361,11 +358,11 @@ dialog {
 
 .add-book {
   background: inherit;
-  border-radius: 1rem;
+  border-radius: 2rem;
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 300ms ease-in-out;
-  color: var(--dark);
+  color: var(--darker-theme);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -463,3 +460,65 @@ dialog {
   }
 }
 
+.book-options {
+  text-align: center;
+  font-size: 32px;
+  color: var(--darker-theme);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--padding-default);
+
+  & .display-author {
+    font-style: italic;
+  }
+
+  & p {
+    display: inline-block;
+    font-size: 24px;
+  }
+}
+
+.display-rating span::before {
+  content: '';
+  background-image: url('src/star.svg');
+  background-size: cover;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  transform: translate(-4px, 4px);
+}
+
+.options-btns {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.remove-btn,
+.edit-btn {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  color: var(--white);
+  & img {
+    filter: var(--filter-white);
+  }
+}
+
+.edit-btn {
+  background-color: var(--darker-theme);
+}
+
+.remove-btn {
+  background-color: darkred;
+}
+
+.timer {
+  background-color: var(--lighter-theme);
+  border-radius: 2rem;
+  padding: var(--padding-default);
+}

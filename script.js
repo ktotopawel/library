@@ -76,9 +76,11 @@ function updateLibrary() {
     }
 
     for (let i = 0; i < myLibrary.length; i++) {
+        myLibrary[i].index = i;
 
         const card = document.createElement('div')
         card.className += "book big";
+        card.setAttribute('data-index', `${i}`)
 
         const bookInfo = document.createElement('div');
         bookInfo.className += 'book-info';
@@ -116,13 +118,18 @@ function updateLibrary() {
 
         cards.prepend(card);
 
-        myLibrary[i].index = i;
     }
 }
 
-// card.addEventListener('click' () => {
+cards.addEventListener('click', (event) => {
+    let target = event.target
 
-// })
+    if (target.className == 'content') {
+        return;
+    };
+
+    
+})
 
 addBook('The Midnight Library', 'Matt Haig', '2020', '4', 'false');
 addBook('Dune', 'Frank Herbert', '1965', '5', 'true');
