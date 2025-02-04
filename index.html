@@ -38,7 +38,37 @@
             </div>
             <div class="sidebar">
                 <div class="sidebar-card">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quas dolores cum. Hic dolorem ducimus, non, aperiam mollitia magni explicabo ex vero adipisci placeat, laboriosam sit corrupti minus enim sunt.
+                    <dialog class="add-book">
+                        <div class="close"></div>
+                        <h2>Add a book</h2>
+                        <div class="input-box">
+                            <label for="title">Title</label>
+                            <input required autofocus type="text" name="title" id="title">
+                        </div>
+                        <div class="input-box">
+                            <label for="author">Author</label>
+                            <input required type="text" name="author" id="author">
+                        </div>
+                        <div class="input-box">
+                            <label for="year">Year</label>
+                            <input required type="tel" name="year" id="year">
+                        </div>
+                        <div class="input-box">
+                            <label for="rating">Rating</label>
+                            <div class="slider">
+                                <input required type="range" name="rating" id="rating" min="1" max="5" value="1" step="0.5" oninput="ratingOutput.value = rating.value">
+                                <output id="ratingOutput">1</output>
+                            </div>
+                        </div>
+                        <div class="input-box select">
+                            <label for="read">Status</label>
+                            <select required name="read" id="read">
+                                <option value="true">Read</option>
+                                <option value="false">Not read</option>
+                            </select>
+                        </div>
+                        <button id="confirm" type="submit">ADD</button>
+                    </dialog>
                 </div>
             </div>
         </div>

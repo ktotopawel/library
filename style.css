@@ -93,6 +93,7 @@ h6 {
 
 .container {
   height: 100vh;
+  min-width: 800px;
 }
 
 .header {
@@ -305,6 +306,7 @@ h6 {
 }
 
 .sidebar-card {
+  position: relative;
   margin: 0.125rem;
   background-color: var(--lighter-theme);
   height: calc(100% - 0.25rem);
@@ -312,9 +314,130 @@ h6 {
   padding: var(--padding-default);
 }
 
-.big:hover {
+.big:hover,
+.big.selected {
   z-index: 1;
-  transform: scale(1.1, 1.1);
+  transform: scale(1.15, 1.15);
   transform-origin: center;
   box-shadow: 0px 0px 10px 20px hsla(0, 100%, 0%, 0.5);
+  cursor: pointer;
 }
+
+dialog {
+  background: none;
+  border: none;
+}
+
+.close {
+  content: url(src/x-square.svg);
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 1%;
+  right: 5%;
+  cursor: pointer;
+  filter: var(--filter-darker-theme);
+}
+
+.add-book {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 300ms ease-in-out;
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: calc(100%);
+  align-items: center;
+
+  & h2 {
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  & button {
+    align-self: flex-start;
+    margin-left: 13%;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--darker-theme);
+    border: none;
+    border-radius: 2rem;
+    font-weight: 900;
+    color: var(--lighter-theme);
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+    &:hover {
+      box-shadow: 0px 0px 3px  var(--darker-theme);
+      transform: scale(1.1, 1.1);
+    }
+  }
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  width: max(75%, 24ch);
+
+  & input[type='text'],
+  input[type='tel'] {
+    background-color: var(--light-theme);
+    border: none;
+    border-radius: 1rem;
+    outline: none;
+    padding: 0.25rem 1rem;
+    transition: transform 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.05, 1.1);
+    }
+  }
+
+  & .slider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    & input[type='range'] {
+      flex: 1;
+      appearance: none;
+      width: 100%;
+      height: 0.25rem;
+      background-color: var(--dark-theme);
+      border-radius: 0.125rem;
+      outline: none;
+      opacity: 0.7;
+      transition: opacity 200ms;
+
+      &::-webkit-slider-thumb{
+        appearance: none;
+        width: 1rem;
+        height: 1rem;
+        background-color: var(--darker-theme);
+        border-radius: 1rem;
+        cursor: pointer;
+      }
+      &::-moz-range-thumb {
+        width: 1rem;
+        height: 1rem;
+        background-color: var(--darker-theme);
+        border-radius: 1rem;
+        cursor: pointer;
+      }
+    }
+
+    & output {
+      flex: none;
+      width: 2rem;
+      text-align: right;
+      font-weight: 500;
+    }
+  }
+
+  &.select {
+    flex-direction: row;
+    gap: 1rem;
+
+  }
+}
+
