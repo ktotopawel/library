@@ -195,8 +195,11 @@ h6 {
 
 .content {
   /* background: var(--lighter-theme); */
+  /* position: relative; */
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
   gap: 0.25rem;
   overflow-y: auto;
   overflow-x: hidden;
@@ -223,6 +226,7 @@ h6 {
   border-radius: 0.5rem;
   color: var(--white);
   transition: transform 200ms ease-in-out;
+  /* filter: contrast(10%); */
 }
 
 .book::before, .book::after {
@@ -303,6 +307,18 @@ h6 {
 .sidebar {
   /* background: var(--lighter-theme); */
   padding: var(--padding-default);
+  position: relative;
+}
+
+.sidebar::before {
+  content: '';
+  width: 8px;
+  height: 100%;
+  position: absolute;
+  background-color: var(--darker-theme);
+  left: 0;
+  top: 0;
+
 }
 
 .sidebar-card {
@@ -314,10 +330,14 @@ h6 {
   padding: var(--padding-default);
 }
 
+.default {
+  padding: var(--padding-default);
+}
+
 .big:hover,
 .big.selected {
   z-index: 1;
-  transform: scale(1.15, 1.15);
+  transform: scale(1.1, 1.15);
   transform-origin: center;
   box-shadow: 0px 0px 10px 20px hsla(0, 100%, 0%, 0.5);
   cursor: pointer;
@@ -340,8 +360,10 @@ dialog {
 }
 
 .add-book {
+  background: inherit;
+  border-radius: 1rem;
   transform: scaleY(0);
-  transform-origin: top;
+  transform-origin: bottom;
   transition: transform 300ms ease-in-out;
   color: var(--dark);
   display: flex;

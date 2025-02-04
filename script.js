@@ -108,14 +108,27 @@ function updateLibrary() {
         rating.className += 'rating';
         bookInfo.appendChild(rating);
 
-        card.style.filter = `hue-rotate(${myLibrary[i].colour}deg)`;
+        card.style.filter = `hue-rotate(${myLibrary[i].colour}deg) saturate(40%)`;
 
         bookInfo.appendChild(yearAuthor);
 
         card.appendChild(bookInfo);
 
-        cards.appendChild(card);
+        cards.prepend(card);
+
+        myLibrary[i].index = i;
     }
 }
+
+// card.addEventListener('click' () => {
+
+// })
+
+addBook('The Midnight Library', 'Matt Haig', '2020', '4', 'false');
+addBook('Dune', 'Frank Herbert', '1965', '5', 'true');
+addBook('The Silent Patient', 'Alex Michaelides', '2019', '4.5', 'true');
+addBook('Educated', 'Tara Westover', '2018', '5', 'false');
+
+
 
 updateLibrary();
