@@ -330,7 +330,7 @@ h6 {
 .sidebar::before {
   content: "";
   width: 8px;
-  height: 100%;
+  height: calc(100% + 1rem);
   position: absolute;
   background-color: var(--darker-theme);
   left: 0;
