@@ -548,7 +548,107 @@ dialog {
   background-color: var(--lighter-theme);
   border-radius: 2rem;
   padding: var(--padding-default);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.base-timer {
+  position: relative;
+  height: 50%;
+  width: 50%;
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: var(--dark-theme);
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  stroke: var(--darker-theme);
+}
+
+.base-timer-__svg {
+  transform: scaleX(-1);
+}
+
+.timer-time-display {
+  position: absolute;
+  height: calc(100% - 3rem);
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--darker-theme);
+}
+
+.set-timer {
+  margin-top: auto;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  & input {
+    position: relative;
+    width: calc(100% - 2rem);
+    background-color: var(--light-theme);
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0 0.5rem;
+    padding: 0 1rem;
+
+  }
+  
+  & .start-timer {
+    width: calc(100%-2rem);
+    text-align: center;
+    font-size: 2rem;
+    background-color: var(--darker-theme);
+    border-radius: 1rem;
+    color: var(--lighter-theme);
+    cursor: pointer;
+  }
+}
+
+.timer-set {
+  position: relative;
+}
+
+.timer-set::after {
+  position: absolute;
+  right: 4rem;
+  top: 0.5rem;
+  display: inline-block;
+  height: 2rem;
+  z-index: 10;
+  font-size: 1.5rem;
+}
+
+.timer-set.minutes::after {
+  content: 'min';
+}
+
+.timer-set.seconds::after {
+  content: 'sec';
+} 
 
 .fade {
   opacity: 0;

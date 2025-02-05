@@ -202,3 +202,70 @@ displayBookOptions(0);
 
 updateLibrary();
 cards.lastChild.classList.add('selected');
+
+function formatTime(time) {
+    const minutes = Math.floor(time/60);
+
+    let seconds = time % 60
+
+    if (seconds < 10) {
+        seconds = `0${seconds}`;
+    }
+
+    return `${minutes}:${seconds}`;
+}
+
+const timeDisplay = document.querySelector('.timer-time-display');
+
+let timeLimit = 0;
+
+let timePassed = 0;
+let timeLeft = timeLimit;
+
+let timerInterval = null;
+
+function startTimer() {
+    if (timerInterval !== null) {
+        return;
+    }
+    timerInterval = setInterval(() => {
+        if (timeLimit > timePassed) {
+            timePassed += 1;
+            timeLeft = timeLimit - timePassed;
+
+            document.querySelector('#timer-time-display').textContent = `${formatTime(timeLeft)}`;
+
+            setCircleDasharray();
+        } else {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+    }, 1000)
+}
+
+function calculateTimeFraction() {
+    const rawTimeFraction = timeLeft / timeLimit
+    return rawTimeFraction - (1/ timeLimit) * (1 - rawTimeFraction);
+}
+
+function setCircleDasharray() {
+    const circleDasharray = `${(
+    calculateTimeFraction() * 283
+    ).toFixed(0)} 283`;
+    document
+        .querySelector('.base-timer__path-remaining')
+        .setAttribute('stroke-dasharray', circleDasharray);
+}
+
+const startTimerBtn = document.querySelector('.start-timer');
+const minutesInput = document.querySelector('#timer-minutes-set');
+const secondsInput = document.querySelector('#timer-seconds-set');
+
+
+startTimerBtn.addEventListener('click', () => {
+    timeLimit = Number((minutesInput.value * 60)) + Number(secondsInput.value);
+
+    console.log(timeLimit);
+
+    startTimer();
+})

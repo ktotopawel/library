@@ -91,7 +91,33 @@
                         <h4>Have fun!</h4>
                     </div>
                 </div>
-                <div class="timer">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus vitae maxime officiis praesentium cum tempora, esse magni enim vel natus quidem minima sapiente inventore, repudiandae provident quis tenetur cupiditate nesciunt!</div>
+                <div class="timer">
+                    <div class="base-timer">
+                        <svg class="base-timer-__svg" viewBox="0 0 100 100">
+                            <g class="base-timer__circle">
+                                <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
+                                <path
+                                    id="base-timer-path-remaining"
+                                    stroke-dasharray="283"
+                                    class="base-timer__path-remaining"
+                                    d="
+                                        M 50, 50
+                                        m -45, 0
+                                        a 45,45 0 1,0 90,0
+                                        a 45,45 0 1,0 -90,0    
+                                    "
+                                ></path>
+                            </g>
+                        </svg>
+                        <span id="timer-time-display" class="timer-time-display">
+                        </span>
+                    </div>
+                    <div class="set-timer">
+                        <div class="timer-set minutes"><input min="0" max="60" type="number" name="timer-minutes-set" id="timer-minutes-set"></div>
+                        <div class="timer-set seconds"><input min="0" max="60" type="number" name="timer-seconds-set" id="timer-seconds-set"></div>
+                        <div class="start-timer">Start</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
