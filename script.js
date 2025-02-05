@@ -128,7 +128,41 @@ cards.addEventListener('click', (event) => {
         return;
     };
 
+    const selected = cards.querySelector('.selected');
+
+    if (selected) {
+    selected.classList.remove('selected');
+    };
     
+    while (target.className != 'book big') {
+        target = target.parentElement;
+    };
+
+    target.classList.add('selected');
+    
+    targetIndex = target.getAttribute('data-index');
+
+    displayBookOptions(targetIndex);
+})
+
+const displayTitle = document.querySelector('.display-title');
+const displayAuthor = document.querySelector('.display-author');
+const displayYear = document.querySelector('.display-year');
+const displayRating = document.getElementById('display-rating-id');
+
+
+function displayBookOptions (index) {
+    displayTitle.textContent = `${myLibrary[index].title}`;
+    displayAuthor.textContent = `${myLibrary[index].author}`
+    displayYear.textContent = `${myLibrary[index].year}`
+    displayRating.textContent = `${myLibrary[index].rating}`
+};
+
+const removeButton = document.querySelector('.remove-btn');
+
+removeButton.addEventListener('click', () => {
+    index = cards.querySelector('.selected').getAttribute('data-index');
+    console.log(index);
 })
 
 addBook('The Midnight Library', 'Matt Haig', '2020', '4', 'false');

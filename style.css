@@ -72,6 +72,7 @@ h6 {
   --darker-theme: #4b3d3a;
   --dark: #2d2b2a;
   --highlight: #dcca23;
+  --delete-highlight: #8b2300;
 
   --filter-lighter-theme: brightness(0) saturate(100%) invert(90%) sepia(6%) saturate(811%) hue-rotate(332deg) brightness(107%) contrast(87%);
   --filter-dark: brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(546%) hue-rotate(335deg) brightness(93%) contrast(88%);
@@ -259,6 +260,10 @@ h6 {
   cursor: pointer;
 }
 
+.big:hover {
+  z-index: 2;
+}
+
 .book-info {
   display: flex;
   flex-wrap: wrap;
@@ -357,10 +362,11 @@ dialog {
 }
 
 .add-book {
-  background: inherit;
+  z-index: 3;
+  background: var(--lighter-theme);
   border-radius: 2rem;
   transform: scaleY(0);
-  transform-origin: bottom;
+  transform-origin: center;
   transition: transform 300ms ease-in-out;
   color: var(--darker-theme);
   display: flex;
@@ -468,6 +474,7 @@ dialog {
   flex-direction: column;
   height: 100%;
   padding: var(--padding-default);
+  transform: scaleY(1);
 
   & .display-author {
     font-style: italic;
@@ -504,6 +511,8 @@ dialog {
   padding: 1rem;
   border-radius: 1.5rem;
   color: var(--white);
+  cursor: pointer;
+
   & img {
     filter: var(--filter-white);
   }
@@ -514,11 +523,15 @@ dialog {
 }
 
 .remove-btn {
-  background-color: darkred;
+  background-color: var(--delete-highlight);
 }
 
 .timer {
   background-color: var(--lighter-theme);
   border-radius: 2rem;
   padding: var(--padding-default);
+}
+
+.fade {
+  opacity: 0;
 }
