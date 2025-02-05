@@ -498,13 +498,14 @@ dialog {
 
 .options-btns {
   margin-top: auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   gap: 1rem;
 }
 
 .remove-btn,
-.edit-btn {
+.status-btn.false,
+.status-btn.true {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -518,8 +519,25 @@ dialog {
   }
 }
 
-.edit-btn {
+.status-btn {
+  position: relative;
+}
+
+.status-btn.false {
   background-color: var(--darker-theme);
+  /* display: none; */
+}
+
+.status-btn.true {
+  background-color: var(--highlight);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease-in-out;
 }
 
 .remove-btn {

@@ -9,6 +9,14 @@ function Book(title, author, year, rating, status) {
     this.colour = Math.random() * 360
 };
 
+Book.prototype.toggleStatus = function () {
+    if (this.status === 'false') {
+        this.status = 'true';
+    } else  {
+        this.status = 'false';
+    }
+}
+
 function addBook(title, author, year, rating, status) {
     myLibrary.push(new Book(title, author, year, rating, status));
 };
@@ -150,12 +158,20 @@ const displayAuthor = document.querySelector('.display-author');
 const displayYear = document.querySelector('.display-year');
 const displayRating = document.getElementById('display-rating-id');
 
+const  readDisplay = document.querySelector('.true')
+
 
 function displayBookOptions (index) {
     displayTitle.textContent = `${myLibrary[index].title}`;
     displayAuthor.textContent = `${myLibrary[index].author}`
     displayYear.textContent = `${myLibrary[index].year}`
     displayRating.textContent = `${myLibrary[index].rating}`
+
+    if (myLibrary[index].status === 'true') {
+        readDisplay.style.transform = 'scaleX(1)';
+    } else {
+        readDisplay.style.transform = 'scaleX(0)'
+    }
 };
 
 const removeButton = document.querySelector('.remove-btn');
@@ -169,6 +185,14 @@ removeButton.addEventListener('click', () => {
     displayBookOptions(index < (myLibrary.length - 1) ? index : index -1)
 })
 
+const statusToggle = document.querySelector('#status-toggle-btn');
+
+statusToggle.addEventListener('click', () => {
+    const index = cards.querySelector('.selected').getAttribute('data-index');
+    myLibrary[index].toggleStatus();
+    displayBookOptions(index);
+})
+
 addBook('The Midnight Library', 'Matt Haig', '2020', '4', 'false');
 addBook('Dune', 'Frank Herbert', '1965', '5', 'true');
 addBook('The Silent Patient', 'Alex Michaelides', '2019', '4.5', 'true');
@@ -176,6 +200,5 @@ addBook('Educated', 'Tara Westover', '2018', '5', 'false');
 
 displayBookOptions(0);
 
-
-
 updateLibrary();
+cards.lastChild.classList.add('selected');
