@@ -65,7 +65,7 @@ h6 {
 :root {
   font-family: system-ui, sans-serif;
   font-weight: normal;
-  --white: #F7F7F7;
+  --white: #f7f7f7;
   --lighter-theme: #efe4d7;
   --light-theme: #c3b3a2;
   --dark-theme: #7a7265;
@@ -74,23 +74,27 @@ h6 {
   --highlight: #dcca23;
   --delete-highlight: #8b2300;
 
-  --filter-lighter-theme: brightness(0) saturate(100%) invert(90%) sepia(6%) saturate(811%) hue-rotate(332deg) brightness(107%) contrast(87%);
-  --filter-dark: brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(546%) hue-rotate(335deg) brightness(93%) contrast(88%);
-  --filter-highlight: brightness(0) saturate(100%) invert(84%) sepia(89%) saturate(4243%) hue-rotate(342deg) brightness(94%) contrast(83%);
-  --filter-darker-theme: brightness(0) saturate(100%) invert(21%) sepia(3%) saturate(3741%) hue-rotate(323deg) brightness(93%) contrast(82%);
-  --filter-white: brightness(0) saturate(100%) invert(100%) sepia(5%) saturate(506%) hue-rotate(276deg) brightness(114%) contrast(94%);
-  
+  --filter-lighter-theme: brightness(0) saturate(100%) invert(90%) sepia(6%)
+    saturate(811%) hue-rotate(332deg) brightness(107%) contrast(87%);
+  --filter-dark: brightness(0) saturate(100%) invert(13%) sepia(5%)
+    saturate(546%) hue-rotate(335deg) brightness(93%) contrast(88%);
+  --filter-highlight: brightness(0) saturate(100%) invert(84%) sepia(89%)
+    saturate(4243%) hue-rotate(342deg) brightness(94%) contrast(83%);
+  --filter-darker-theme: brightness(0) saturate(100%) invert(21%) sepia(3%)
+    saturate(3741%) hue-rotate(323deg) brightness(93%) contrast(82%);
+  --filter-white: brightness(0) saturate(100%) invert(100%) sepia(5%)
+    saturate(506%) hue-rotate(276deg) brightness(114%) contrast(94%);
+
   --padding-default: 1rem;
   --header-height: 5rem;
 }
 
 @font-face {
-  font-family: 'folks-heavy';
-  src: url('fonts/folks-heavy-webfont.woff2') format('woff2'),
-    url('fonts/folks-heavy-webfont.woff') format('woff');
+  font-family: "folks-heavy";
+  src: url("fonts/folks-heavy-webfont.woff2") format("woff2"),
+    url("fonts/folks-heavy-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-
 }
 
 .container {
@@ -111,7 +115,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-family: 'folks-heavy';
+  font-family: "folks-heavy";
   font-size: 1rem;
 
   & svg {
@@ -164,7 +168,7 @@ h6 {
 }
 
 #add-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -178,7 +182,7 @@ h6 {
 }
 
 #add-btn:hover::before {
-  transform: scale(1.01,  1.01);
+  transform: scale(1.01, 1.01);
 }
 
 #add-btn:hover {
@@ -210,18 +214,17 @@ h6 {
   &::-webkit-scrollbar {
     width: 10px;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background-color: var(--dark-theme);
-    
   }
 }
 
 .book {
   position: relative;
   padding: 1rem 6rem 1rem 4rem;
-  background: url('src/leather2.jpg');
+  background: url("src/leather2.jpg");
   background-size: contain;
   box-shadow: inset 0px 11px 10px -10px black, inset 0px -11px 10px -10px black;
   max-height: min-content;
@@ -231,10 +234,11 @@ h6 {
   /* filter: contrast(10%); */
 }
 
-.book::before, .book::after {
+.book::before,
+.book::after {
   position: absolute;
   top: 0;
-  content: '';
+  content: "";
   display: inline-block;
   height: 100%;
   width: 1rem;
@@ -292,18 +296,19 @@ h6 {
     display: flex;
     align-items: center;
     gap: 0.25em;
-    }
+  }
 }
 
 .rating span::before {
-  content: '';
+  content: "";
   display: inline-block;
   height: 1em;
   width: 1em;
-  background-image: url('src/star.svg');
+  background-image: url("src/star.svg");
   background-size: cover;
   transform: translateY(-1px);
-  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(73%) hue-rotate(87deg) brightness(117%) contrast(94%);
+  filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(73%)
+    hue-rotate(87deg) brightness(117%) contrast(94%);
 }
 
 .year {
@@ -322,7 +327,7 @@ h6 {
 }
 
 .sidebar::before {
-  content: '';
+  content: "";
   width: 8px;
   height: 100%;
   position: absolute;
@@ -392,7 +397,7 @@ dialog {
     cursor: pointer;
     transition: 100ms ease-in-out;
     &:hover {
-      box-shadow: 0px 0px 3px  var(--darker-theme);
+      box-shadow: 0px 0px 3px var(--darker-theme);
       transform: scale(1.1, 1.1);
     }
   }
@@ -403,8 +408,8 @@ dialog {
   flex-direction: column;
   width: max(75%, 24ch);
 
-  & input[type='text'],
-  input[type='tel'] {
+  & input[type="text"],
+  input[type="tel"] {
     background-color: var(--light-theme);
     border: none;
     border-radius: 1rem;
@@ -423,7 +428,7 @@ dialog {
     align-items: center;
     gap: 1rem;
 
-    & input[type='range'] {
+    & input[type="range"] {
       flex: 1;
       appearance: none;
       width: 100%;
@@ -434,7 +439,7 @@ dialog {
       opacity: 0.7;
       transition: opacity 200ms;
 
-      &::-webkit-slider-thumb{
+      &::-webkit-slider-thumb {
         appearance: none;
         width: 1rem;
         height: 1rem;
@@ -462,7 +467,6 @@ dialog {
   &.select {
     flex-direction: row;
     gap: 1rem;
-
   }
 }
 
@@ -487,8 +491,8 @@ dialog {
 }
 
 .display-rating span::before {
-  content: '';
-  background-image: url('src/star.svg');
+  content: "";
+  background-image: url("src/star.svg");
   background-size: cover;
   width: 2rem;
   height: 2rem;
@@ -614,9 +618,8 @@ dialog {
     font-size: 2rem;
     margin: 0 0.5rem;
     padding: 0 1rem;
-
   }
-  
+
   & .start-timer {
     width: calc(100%-2rem);
     text-align: center;
@@ -643,12 +646,12 @@ dialog {
 }
 
 .timer-set.minutes::after {
-  content: 'min';
+  content: "min";
 }
 
 .timer-set.seconds::after {
-  content: 'sec';
-} 
+  content: "sec";
+}
 
 .fade {
   opacity: 0;
