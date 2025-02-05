@@ -162,13 +162,19 @@ const removeButton = document.querySelector('.remove-btn');
 
 removeButton.addEventListener('click', () => {
     index = cards.querySelector('.selected').getAttribute('data-index');
-    console.log(index);
+
+    myLibrary.splice(index, 1);
+    updateLibrary();
+
+    displayBookOptions(index < (myLibrary.length - 1) ? index : index -1)
 })
 
 addBook('The Midnight Library', 'Matt Haig', '2020', '4', 'false');
 addBook('Dune', 'Frank Herbert', '1965', '5', 'true');
 addBook('The Silent Patient', 'Alex Michaelides', '2019', '4.5', 'true');
 addBook('Educated', 'Tara Westover', '2018', '5', 'false');
+
+displayBookOptions(0);
 
 
 
