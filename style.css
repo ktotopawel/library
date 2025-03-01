@@ -91,7 +91,8 @@ h6 {
 
 @font-face {
   font-family: "folks-heavy";
-  src: url("fonts/folks-heavy-webfont.woff2") format("woff2"),
+  src:
+    url("fonts/folks-heavy-webfont.woff2") format("woff2"),
     url("fonts/folks-heavy-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -226,7 +227,9 @@ h6 {
   padding: 1rem 6rem 1rem 4rem;
   background: url("src/leather2.jpg");
   background-size: contain;
-  box-shadow: inset 0px 11px 10px -10px black, inset 0px -11px 10px -10px black;
+  box-shadow:
+    inset 0px 11px 10px -10px black,
+    inset 0px -11px 10px -10px black;
   max-height: min-content;
   border-radius: 0.5rem;
   color: var(--white);
@@ -380,6 +383,7 @@ dialog {
   gap: 2rem;
   width: calc(100%);
   align-items: center;
+  border: 2px solid var(--dark);
 
   & h2 {
     font-size: 32px;
@@ -469,6 +473,20 @@ dialog {
     flex-direction: row;
     gap: 1rem;
   }
+}
+
+.error {
+  background: none;
+  color: var(--delete-highlight);
+  border: 3px dashed var(--delete-highlight);
+  padding: 1rem;
+  width: 100%;
+  border-radius: 1rem;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .book-options {

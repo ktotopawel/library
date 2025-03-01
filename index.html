@@ -55,7 +55,8 @@
                         </div>
                         <div class="input-box">
                             <label for="year">Year</label>
-                            <input required type="tel" name="year" id="year">
+                            <input required type="tel" name="year" id="year" min="1000" max="2099"
+                                pattern="^[12][0-9]{3}$">
                         </div>
                         <div class="input-box">
                             <label for="rating">Rating</label>
@@ -72,6 +73,7 @@
                                 <option value="false">Not read</option>
                             </select>
                         </div>
+                        <div class="error"></div>
                         <button id="confirm" type="submit">ADD</button>
                     </dialog>
                     <div class="book-options">

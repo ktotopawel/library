@@ -47,8 +47,7 @@ closeBtn.addEventListener("click", () => {
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
-  if (titleInput.value == "") {
-    alert("please input the title (placeholder)");
+  if (checkValidity() === false) {
     return;
   }
 
@@ -63,7 +62,7 @@ confirmBtn.addEventListener("click", (event) => {
     authorInputValue,
     yearInputValue,
     ratingInputValue,
-    statusInputValue
+    statusInputValue,
   );
   updateLibrary();
 
@@ -71,6 +70,28 @@ confirmBtn.addEventListener("click", (event) => {
   authorInput.value = null;
   yearInput.value = null;
   ratingInput.value = null;
+
+  function checkValidity() {
+    const error = document.querySelector(".error");
+
+    if (!titleInput.checkValidity()) {
+      error.textContent = "Input a title";
+      error.classList.add("visible");
+      return false;
+    } else if (!authorInput.checkValidity()) {
+      error.textContent = "Input an author";
+      error.classList.add("visible");
+      return false;
+    } else if (!yearInput.checkValidity()) {
+      error.textContent = "Input a valid year";
+      error.classList.add("visible");
+      return false;
+    } else {
+      error.textContent = "";
+      error.classList.remove("visible");
+      return true;
+    }
+  }
 });
 
 function updateLibrary() {
@@ -227,7 +248,7 @@ function startTimer() {
       timeLeft = timeLimit - timePassed;
 
       document.querySelector("#timer-time-display").textContent = `${formatTime(
-        timeLeft
+        timeLeft,
       )}`;
 
       setCircleDasharray();
